@@ -56,4 +56,12 @@ body {
   padding: 5px;
 }
 
+.active {
+  border: 3px solid green;
+}
+
+.won {
+  border: 3px solid blue;
+}
+
 /*# sourceMappingURL=styles.css.map */
