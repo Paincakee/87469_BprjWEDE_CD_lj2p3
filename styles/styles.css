@@ -1,5 +1,59 @@
 body {
   background-color: grey;
+  padding: 0;
+  margin: 0;
+}
+
+.header-page {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.header-page h1 {
+  padding: 10px;
+}
+
+.game_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.game_wrapper .description_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210px;
+  height: 750px;
+  border: 2px solid white;
+}
+.game_wrapper .description_wrapper .descriptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  margin-top: 10px;
+  width: 200px;
+  height: 150px;
+}
+.game_wrapper .description_wrapper .descriptions:first-child {
+  margin-top: 5px;
+}
+.game_wrapper .description_wrapper .descriptions:last-child {
+  margin-bottom: 5px;
+}
+.game_wrapper .image_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210px;
+  height: 750px;
+  border: 2px solid white;
+}
+.game_wrapper .image_wrapper img {
+  padding: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

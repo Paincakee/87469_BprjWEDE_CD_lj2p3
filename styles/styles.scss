@@ -1,3 +1,64 @@
 body{
     background-color: grey;
+    padding: 0;
+    margin: 0;
 }
+.header-page {
+    // position: fixed;
+    display: flex;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    h1{
+        padding: 10px;
+    }
+}
+
+.game_wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+    .description_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 210px;
+        height: 750px;
+        border: 2px solid white;
+      
+        .descriptions {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: red;
+          margin-top: 10px;
+          width: 200px;
+          height: 150px;
+
+            &:first-child{
+                margin-top: 5px;
+            }
+
+            &:last-child {
+                margin-bottom: 5px;
+            }
+        }
+    }
+      
+  
+    .image_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 210px;
+        height: 750px;
+        border: 2px solid white;
+        img{
+            padding: 5px;
+        }
+    }
+  }
+  
