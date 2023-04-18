@@ -1,69 +1,98 @@
-body{
-    background-color: grey;
-    padding: 0;
-    margin: 0;
-}
+$primary-color: #4285F4;
+$secondary-color: #f81500;
+$active-color: #ffd000;
+
 .header-page {
-    // position: fixed;
-    display: flex;
-    background-color: white;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
-    h1{
-        padding: 10px;
-    }
+  text-align: center;
+  margin-top: 20px;
 }
 
 .game_wrapper {
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    
+    justify-content: space-between;
+    max-width: 1300px;
+    .active{
+        background-color: $secondary-color !important;
+    }
+    .won{
+        filter: blur(0px) !important;
+        background-color:rgb(6, 184, 6) !important;
+    }
+
     .description_wrapper {
+        position: static;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         align-items: center;
-        width: 210px;
-        height: 750px;
-        border: 2px solid white;
-      
+        max-width: 500px;
+        flex-direction: column;
+
         .descriptions {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: red;
-          margin-top: 10px;
-          width: 200px;
-          height: 150px;
-
-            &:first-child{
-                margin-top: 5px;
-            }
-
-            &:last-child {
-                margin-bottom: 5px;
-            }
-        }
-    }
-      
-  
-    .image_wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 210px;
-        height: 750px;
-        border: 2px solid white;
-        img{
+            box-sizing: border-box;
+            margin: 3px;
             padding: 5px;
+            background-color: $primary-color;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+        &:hover{
+            box-shadow: 0px 0px 15px $primary-color; 
+        }
         }
     }
-  }
-  .active{
-    border: 3px solid green;
-  }
-  .won{
-    border: 3px solid blue;
-  }
+
+    .image_wrapper {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        max-width: 500px;
+        flex-direction: column;
+        .images {
+            // filter: grayscale(100) blur(20px) ;
+            filter: blur(10px);
+            box-sizing: border-box;
+            margin: 3px;
+            padding: 5px;
+            background-color: $primary-color;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.2);
+            &:hover{
+                box-shadow: 0px 0px 15px $primary-color; 
+            }
+        }
+    }
+
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 20px;
+
+        #timer_text {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: center;
+        }
+
+        .leaderboard {
+        background-color: $primary-color;
+        color: white;
+        font-size: 1.2rem;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
