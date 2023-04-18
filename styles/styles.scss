@@ -4,11 +4,11 @@ $active-color: #ffd000;
 
 .header-page {
   text-align: center;
-  margin-top: 20px;
+//   margin-top: 20px;
 }
 
 .game_wrapper {
-    margin: 0 auto;
+    margin: 40px auto;
     display: flex;
     justify-content: space-between;
     max-width: 1300px;
@@ -58,7 +58,7 @@ $active-color: #ffd000;
         flex-direction: column;
         .images {
             // filter: grayscale(100) blur(20px) ;
-            filter: blur(10px);
+            filter: blur(10px); 
             box-sizing: border-box;
             margin: 3px;
             padding: 5px;

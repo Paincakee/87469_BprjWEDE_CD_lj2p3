@@ -13,9 +13,7 @@ session_start();
     <script src="./js/match.js"></script>
 </head>
 <body onload="getData();">
-    <div class="header-page">
-        <h1>Match the picture</h1>
-    </div>
+    
     <div class="game_wrapper">
         <div class='description_wrapper'>
             <?php
@@ -44,6 +42,10 @@ session_start();
             ?>
         </div>
         <div class="info">
+            <div class="header-page">
+                <h1 id="header">Match the picture</h1>
+            </div>
+            
             <span id="timer_text">30 Seconds</span>
             <div class="leaderboard">Hallp</div>
         </div>
@@ -59,8 +61,5 @@ session_start();
             ?>
         </div>
     </div>
-
-
-   
 </body>
 </html>
