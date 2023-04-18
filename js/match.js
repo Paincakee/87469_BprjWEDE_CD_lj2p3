@@ -130,3 +130,21 @@ function setCardStatus(card, status) {
 function resetCards(cards) {
     cards.forEach(card => card.classList.remove('active'));
 }
+
+async function sendData() {
+    const data = new FormData();
+    data.append("user", user);
+    data.append("time", timer.toFixed(2));
+    try {
+        const response = await fetch("api/request.php", {
+            method: "POST",
+            body: data
+        });
+
+        const text = await response.text();
+
+        console.log(text);
+    } catch (error) {
+        console.log(error);
+    }
+}
