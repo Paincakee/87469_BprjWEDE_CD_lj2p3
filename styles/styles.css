@@ -25,6 +25,7 @@
   flex-direction: column;
 }
 .game_wrapper .description_wrapper .descriptions {
+  display: flex;
   box-sizing: border-box;
   margin: 3px;
   padding: 5px;
@@ -36,6 +37,13 @@
   height: 150px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.game_wrapper .description_wrapper .descriptions h4 {
+  font-weight: 200;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .game_wrapper .description_wrapper .descriptions:hover {
   box-shadow: 0px 0px 15px #4285F4;
@@ -58,6 +66,8 @@
   cursor: pointer;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.2);
+  width: 200px;
+  height: 150px;
 }
 .game_wrapper .image_wrapper .images:hover {
   box-shadow: 0px 0px 15px #4285F4;
@@ -81,6 +91,24 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.game_wrapper .info .leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.game_wrapper .info .leaderboard table td {
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .info .leaderboard {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

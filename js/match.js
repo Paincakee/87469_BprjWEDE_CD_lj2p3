@@ -21,12 +21,12 @@ function flipCard(event) {
     activateCard(clickedCard);
 
     clearTimeout(timeoutID);
-    timeoutID = setTimeout(checkForMatch, 400);
+    timeoutID = setTimeout(checkForMatch, 300);
 }
 
 function startTimer() {
     timerStarted = true;
-    const startTime = Date.now() + 3000;
+    const startTime = Date.now() + 30000;
     timerIntervalId = setInterval(() => {
         timer = (startTime - Date.now()) / 1000;
         document.getElementById("timer_text").innerHTML = (timer <= 0 ? "0.00" : timer.toFixed(2)) + " seconds";
@@ -101,14 +101,17 @@ function playAudio() {
 
 function promptForUserName() {
     setTimeout(() => {
-        const message = `You have found all pairs. Time left: ${timer.toFixed(2)} seconds \nWhat is your name?`;
+        const message = `You have found all pairs. Time left: ${timer.toFixed(2)} seconds \nWhat is your name? (Max 12 characters)`;
         user = prompt(message, "");
         if (user !== null) {
+            // Trim the input to a maximum length of 20 characters
+            user = user.slice(0, 12);
             if (user === "") {
                 alert('Stats not saved');
                 location.reload();
             } else {
-                // Save user stats
+                sendData();
+                location.reload();
             }
         }else{
             alert('Stats not saved');
@@ -136,7 +139,7 @@ async function sendData() {
     data.append("user", user);
     data.append("time", timer.toFixed(2));
     try {
-        const response = await fetch("api/request.php", {
+        const response = await fetch("api/sendData.php", {
             method: "POST",
             body: data
         });

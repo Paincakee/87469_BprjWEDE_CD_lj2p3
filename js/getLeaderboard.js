@@ -1,6 +1,6 @@
-async function getData() {
+async function getLeaderboard() {
     try {
-        const response = await fetch('api/getGame.php', {
+        const response = await fetch('api/getLeaderboard.php?', {
             method: 'GET',
         });
 
@@ -15,5 +15,5 @@ async function getData() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // console.log('DOM loaded');
-    getData();
+    getLeaderboard();
 });

@@ -14,6 +14,15 @@ if ($mysqli->connect_errno) {
 }
 
 $user = $_POST['user'];
-$timer = $_POST['timer'];
+$timer = $_POST['time'];
 
-$sql = "";
+$sql = "INSERT INTO `leaderboard`(`id`, `user`, `time`) VALUES (null,?,?)";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("ss", $user, $timer); 
+
+if ($stmt->execute()) {
+    echo 'Created';
+} else {
+    echo 'Error inserting data: ' . $mysqli->error;
+}

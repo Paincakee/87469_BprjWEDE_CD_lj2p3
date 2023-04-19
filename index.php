@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +10,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Match</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="./js/getItems.js"></script>
     <script src="./js/match.js"></script>
+    
 </head>
-<body onload="getData();">
+<body onload="">
     
     <div class="game_wrapper">
         <div class='description_wrapper'>
@@ -21,6 +22,7 @@ session_start();
             shuffle($_SESSION['dataDescription']);
             shuffle($_SESSION['dataImages']);
 
+            // var_dump($_SESSION['dataDescription']);
             $matchingPairs = array();
             foreach ($_SESSION['dataDescription'] as $description) {
                 foreach ($_SESSION['dataImages'] as $img) {
@@ -36,7 +38,7 @@ session_start();
 
             foreach ($matchingPairs as $pair) { 
                 ?>
-                    <div onclick='flipCard(event);' class='descriptions click_box' data-match-id="<?= $pair['description']['matchKey'] ?>" ><?=$pair['description']['description_img']?></div>
+                    <div onclick='flipCard(event);' class='descriptions click_box' data-match-id="<?= $pair['description']['matchKey'] ?>" > <h4><?=$pair['description']['description_img']?></h4> </div>
                 <?php 
             }
             ?>
@@ -47,7 +49,22 @@ session_start();
             </div>
             
             <span id="timer_text">30 Seconds</span>
-            <div class="leaderboard">Hallp</div>
+            <div class="leaderboard">
+                <table>
+                    <?php
+                    $rank = 0; 
+                    // var_dump($_SESSION['leaderboard']);
+                    foreach ($_SESSION['leaderboard'] as $data){ 
+                        $rank++;
+                        ?>
+                        <tr>
+                            <td class="placement"><?= $rank ?></td>
+                            <td class="name"><?= $data['user'] ?></td>
+                            <td class="time"><?= $data['time'] ?></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
         </div>
            
         <div class="image_wrapper">
@@ -55,11 +72,13 @@ session_start();
             shuffle($matchingPairs);
             foreach ($matchingPairs as $pair) { 
                 ?>
-                <img onclick="flipCard(event);" src="img/<?= $pair['img']['name_img'] ?>" alt="<?= basename($pair['img']['name_img']) ?>" data-match-id="<?= $pair['img']['matchKey'] ?>" width="200px" height="150px" class="images click_box">
+                <img onclick="flipCard(event);" src="img/<?= $pair['img']['name_img'] ?>" alt="<?= basename($pair['img']['name_img']) ?>" data-match-id="<?= $pair['img']['matchKey'] ?>" class="images click_box">
                 <?php 
             }
             ?>
         </div>
     </div>
+    <script src="js/getLeaderboard.js"></script>
+    <script src="js/getItems.js"></script>
 </body>
 </html>
