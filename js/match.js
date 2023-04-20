@@ -10,6 +10,8 @@ function flipCard(event) {
 
     showStatus('Match the picture', 'black');
 
+    console.log(clickedCard);
+
     if (isAlreadyMatched(clickedCard) || activeElements >= 2 || isAlreadyActive(clickedCard)) {
         return;
     }
@@ -108,14 +110,14 @@ function promptForUserName() {
             user = user.slice(0, 12);
             if (user === "") {
                 alert('Stats not saved');
-                location.reload();
+                window.location.reload();
             } else {
                 sendData();
-                location.reload();
+                window.location.reload();
             }
         }else{
             alert('Stats not saved');
-            location.reload();
+            window.location.reload();
         }
     },10);
 }
